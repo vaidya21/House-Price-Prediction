@@ -1,6 +1,9 @@
-# 🏡 GharMulya AI - Real Estate Price Predictor (Indian Real Estate / ₹ INR)
+# 🏡 House Price Prediction - The Real Estate Price Predictor 
 
-An end-to-end Machine Learning web application that predicts house prices in **Indian Rupees (₹)** using **Linear Regression**, complete with an ultra-modern responsive frontend UI (HTML5, CSS3, JavaScript) and a Flask backend powered by Python's `pickle` (`.pkl`).
+An end-to-end Machine Learning web application that predicts house price, complete with an ultra-modern responsive frontend UI (HTML5, CSS3, JavaScript) and a Flask backend powered by Python's `pickle` (`.pkl`).
+
+🔗 **Live Demo:** [https://car-price-predictor-1-8u8k.onrender.com]((https://house-price-prediction-kegh.onrender.com))
+*(Note: Since this is hosted on a free tier, it may take 30-50 seconds to wake up the server on the first load).*
 
 ---
 
@@ -49,23 +52,3 @@ cd house-price-prediction
 
 pip install -r requirements.txt
 ```
-
-### 2. Start the Flask Web App
-```bash
-python app.py
-```
-Open **`http://localhost:5000`** in your web browser.
-
----
-
-## 🌐 How to Deploy on Render (Free Hosting)
-
-1. Push this project to your GitHub repository.
-2. Sign in to **[Render.com](https://render.com)** $\rightarrow$ Click **New +** $\rightarrow$ **Web Service**.
-3. Connect your GitHub repository.
-4. Set the following options:
-   - **Runtime**: `Python 3`
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `gunicorn app:app --workers 2 --timeout 120`
-   - **Instance Type**: `Free`
-5. Click **Create Web Service**. Your live web app will be online with HTTPS in ~2 minutes!
