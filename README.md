@@ -2,7 +2,7 @@
 
 An end-to-end Machine Learning web application that predicts house price, complete with an ultra-modern responsive frontend UI (HTML5, CSS3, JavaScript) and a Flask backend.
 
-**🔴 Live App:** [https://car-price-predictor-1-8u8k.onrender.com](https://house-price-prediction-kegh.onrender.com)<br>
+**🔴 Live App:** [https://house-price-prediction-kegh.onrender.com](https://house-price-prediction-kegh.onrender.com)<br>
 *(Note: Since this is hosted on a free tier, it may take 30-50 seconds to wake up the server on the first load).*
 
 ---
