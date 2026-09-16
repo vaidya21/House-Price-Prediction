@@ -12,12 +12,12 @@ app = Flask(__name__)
 
 # Resolve model paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, 'linear_regression_model.pkl')
+MODEL_PATH = os.path.join(BASE_DIR, 'linear_reg_model.pkl')
 SCALER_PATH = os.path.join(BASE_DIR, 'scaler.pkl')
 
 # Fallback to model/ folder if not in root
 if not os.path.exists(MODEL_PATH):
-    MODEL_PATH = os.path.join(BASE_DIR, 'model', 'linear_regression_model.pkl')
+    MODEL_PATH = os.path.join(BASE_DIR, 'model', 'linear_reg_model.pkl')
 if not os.path.exists(SCALER_PATH):
     SCALER_PATH = os.path.join(BASE_DIR, 'model', 'scaler.pkl')
 
@@ -134,5 +134,5 @@ def health():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    print(f"🚀 ProphetVal server starting at http://localhost:{port}")
+    print(f"ProphetVal server starting at http://localhost:{port}")
     app.run(host='0.0.0.0', port=port, debug=True)
