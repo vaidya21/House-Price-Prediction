@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Real Estate Price Estimator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <!-- Ambient Gradient Background -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="logo">
+        <span class="logo-emoji">🏡</span>
+        <div>
+          <h1>House Price <span class="badge-ai">AI Engine</span></h1>
+          <p class="subtitle">Indian Real Estate Price Predictor</p>
+        </div>
+      </div>
+
+      <div class="nav-badges">
+        <div class="badge-item">
+          <span class="b-label">Algorithm</span>
+          <span class="b-val">Linear Regression</span>
+        </div>
+        <div class="badge-item">
+          <span class="b-label">Accuracy (R²)</span>
+          <span class="b-val highlight">97.4%</span>
+        </div>
+        <div class="badge-item">
+          <span class="b-label">Currency</span>
+          <span class="b-val">INR (₹)</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container app-grid">
+    <!-- Left Column: Input Form -->
+    <section class="panel form-panel">
+      <div class="glass-card">
+        <div class="card-head">
+          <h2>Property Details</h2>
+          <p>Customize specifications below to calculate instant market value.</p>
+        </div>
+
+        <!-- Quick Presets -->
+        <div class="presets-section">
+          <span class="presets-label">⚡ Quick Presets:</span>
+          <div class="preset-buttons">
+            <button type="button" class="btn-preset active" data-preset="gated">🌟 Gated Society 3 BHK</button>
+            <button type="button" class="btn-preset" data-preset="metro">🏢 Metro 2 BHK</button>
+            <button type="button" class="btn-preset" data-preset="villa">🏡 Suburban 4 BHK Villa</button>
+            <button type="button" class="btn-preset" data-preset="rural">🌾 Outskirts House</button>
+          </div>
+        </div>
+
+        <form id="calc-form">
+          
+          <!-- Locality -->
+          <div class="input-block">
+            <label for="Neighborhood">Locality / Zone</label>
+            <div class="select-wrapper">
+              <select id="Neighborhood" name="Neighborhood">
+                <option value="Gated Society" selected>🌟 Gated Society (Security, Clubhouse, Amenities)</option>
+                <option value="City Center">🏢 City Center / Prime Metro (Near Business Hubs)</option>
+                <option value="Suburban">🏡 Suburban (Residential Layouts, Parks)</option>
+                <option value="Rural / Outskirts">🌾 Rural / Outskirts (Quiet, Open Green Area)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Built-up Area Slider + Input -->
+          <div class="input-block">
+            <div class="label-row">
+              <label for="SquareFeet">Built-up Area (Super Built-up)</label>
+              <span class="live-val-badge"><span id="sqft-val">1,850</span> sq ft</span>
+            </div>
+            <div class="range-wrapper">
+              <input type="range" id="sqft-range" min="600" max="4500" step="25" value="1850">
+            </div>
+            <input type="hidden" id="SquareFeet" name="SquareFeet" value="1850">
+          </div>
+
+          <!-- Bedrooms (BHK) Buttons -->
+          <div class="input-block">
+            <label>Bedrooms (BHK)</label>
+            <div class="pill-group" id="bhk-group">
+              <button type="button" class="pill-btn" data-val="1">1 BHK</button>
+              <button type="button" class="pill-btn" data-val="2">2 BHK</button>
+              <button type="button" class="pill-btn active" data-val="3">3 BHK</button>
+              <button type="button" class="pill-btn" data-val="4">4 BHK</button>
+              <button type="button" class="pill-btn" data-val="5">5+ BHK</button>
+            </div>
+            <input type="hidden" id="Bedrooms" name="Bedrooms" value="3">
+          </div>
+
+          <!-- Bathrooms Buttons -->
+          <div class="input-block">
+            <label>Bathrooms</label>
+            <div class="pill-group" id="bath-group">
+              <button type="button" class="pill-btn" data-val="1">1 Bath</button>
+              <button type="button" class="pill-btn" data-val="2">2 Baths</button>
+              <button type="button" class="pill-btn active" data-val="3">3 Baths</button>
+              <button type="button" class="pill-btn" data-val="4">4 Baths</button>
+            </div>
+            <input type="hidden" id="Bathrooms" name="Bathrooms" value="3">
+          </div>
+
+          <!-- Property Age Slider -->
+          <div class="input-block">
+            <div class="label-row">
+              <label for="HouseAge">Property Age</label>
+              <span class="live-val-badge"><span id="age-val">4</span> years old</span>
+            </div>
+            <div class="range-wrapper">
+              <input type="range" id="age-range" min="0" max="30" step="1" value="4">
+            </div>
+            <input type="hidden" id="HouseAge" name="HouseAge" value="4">
+          </div>
+
+          <!-- Distance to City Center Slider -->
+          <div class="input-block">
+            <div class="label-row">
+              <label for="DistanceToCityCenter">Distance from Prime City Center</label>
+              <span class="live-val-badge"><span id="dist-val">5.5</span> km</span>
+            </div>
+            <div class="range-wrapper">
+              <input type="range" id="dist-range" min="1" max="30" step="0.5" value="5.5">
+            </div>
+            <input type="hidden" id="DistanceToCityCenter" name="DistanceToCityCenter" value="5.5">
+          </div>
+
+          <!-- Parking Slots -->
+          <div class="input-block">
+            <label>Covered Parking Slots</label>
+            <div class="pill-group" id="garage-group">
+              <button type="button" class="pill-btn" data-val="0">No Parking</button>
+              <button type="button" class="pill-btn" data-val="1">1 Car</button>
+              <button type="button" class="pill-btn active" data-val="2">2 Cars</button>
+              <button type="button" class="pill-btn" data-val="3">3+ Cars</button>
+            </div>
+            <input type="hidden" id="GarageSpaces" name="GarageSpaces" value="2">
+          </div>
+
+          <button type="submit" id="btn-predict" class="btn-calculate">
+            <span>Recalculate Valuation</span>
+            <div class="loading-dots" id="loading-dots">
+              <span></span><span></span><span></span>
+            </div>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Right Column: Interactive Valuation Card -->
+    <section class="panel result-panel">
+      <div class="glass-card result-card" id="valuation-card">
+        
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          <span>Live ML Valuation</span>
+        </div>
+
+        <div class="price-hero">
+          <div class="rupee-title">Estimated Fair Value</div>
+          <div class="main-price-display" id="res-price-inr">₹1.25 Cr</div>
+          <div class="exact-price" id="res-exact-price">₹1,24,77,494</div>
+        </div>
+
+        <!-- Breakdown Grid -->
+        <div class="financials-grid">
+          <div class="fin-box">
+            <span class="fin-label">Square Foot Rate</span>
+            <span class="fin-value" id="res-rate">₹6,745 / sq ft</span>
+          </div>
+          <div class="fin-box">
+            <span class="fin-label">Approx Home Loan EMI</span>
+            <span class="fin-value highlight" id="res-emi">₹86,500 / mo</span>
+            <span class="fin-note">*80% loan, 20 yrs @ 8.5%</span>
+          </div>
+        </div>
+
+        <!-- Property Summary Pills -->
+        <div class="specs-chips">
+          <span class="chip" id="chip-bhk">3 BHK</span>
+          <span class="chip" id="chip-sqft">1,850 sq ft</span>
+          <span class="chip" id="chip-zone">Gated Society</span>
+          <span class="chip" id="chip-parking">2 Parking</span>
+        </div>
+
+        <!-- ML Trust Banner -->
+        <div class="ml-badge-card">
+          <div class="ml-badge-header">
+            <span>🔬 Production Machine Learning</span>
+            <span class="r2-pill">R² = 97.4%</span>
+          </div>
+          <p class="ml-badge-desc">
+            Trained with <strong>Linear Regression</strong> on 2,000 verified Indian housing records. Screened with <strong>IQR Outlier Removal</strong> and <strong>VIF Collinearity Checks</strong>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>House Price Predictor • Powered by Scikit-Learn, Flask & Python Pickle</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
