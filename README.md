@@ -2,7 +2,7 @@
 
 An end-to-end Machine Learning web application that predicts house price, complete with an ultra-modern responsive frontend UI (HTML5, CSS3, JavaScript) and a Flask backend powered by Python's `pickle` (`.pkl`).
 
-🔗 **Live Demo:** [https://car-price-predictor-1-8u8k.onrender.com](https://house-price-prediction-kegh.onrender.com)
+**🔴 Live App:** [https://car-price-predictor-1-8u8k.onrender.com](https://house-price-prediction-kegh.onrender.com)<br>
 *(Note: Since this is hosted on a free tier, it may take 30-50 seconds to wake up the server on the first load).*
 
 ---
@@ -17,7 +17,6 @@ An end-to-end Machine Learning web application that predicts house price, comple
   - Quick Presets (Metro 2 BHK, Gated Society 3 BHK, Suburban 4 BHK Villa).
   - Monthly Home Loan EMI estimation widget (at 8.5% p.a.).
   - Price per square foot calculation (`₹6,745 / sq ft`).
-- **Production Ready**: One-click deployment on Render / Heroku / AWS using `gunicorn`.
 
 ---
 
@@ -47,7 +46,7 @@ An end-to-end Machine Learning web application that predicts house price, comple
 
 ### 1. Clone repository & install dependencies
 ```bash
-git clone https://github.com/YOUR_USERNAME/house-price-prediction.git
+git clone https://github.com/vaidya21/House-Price-Prediction.git
 cd house-price-prediction
 
 pip install -r requirements.txt
