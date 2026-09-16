@@ -1,6 +1,6 @@
 # 🏡 House Price Prediction - The Real Estate Price Predictor 
 
-An end-to-end Machine Learning web application that predicts house price, complete with an ultra-modern responsive frontend UI (HTML5, CSS3, JavaScript) and a Flask backend powered by Python's `pickle` (`.pkl`).
+An end-to-end Machine Learning web application that predicts house price, complete with an ultra-modern responsive frontend UI (HTML5, CSS3, JavaScript) and a Flask backend.
 
 **🔴 Live App:** [https://car-price-predictor-1-8u8k.onrender.com](https://house-price-prediction-kegh.onrender.com)<br>
 *(Note: Since this is hosted on a free tier, it may take 30-50 seconds to wake up the server on the first load).*
@@ -47,7 +47,7 @@ An end-to-end Machine Learning web application that predicts house price, comple
 ### 1. Clone repository & install dependencies
 ```bash
 git clone https://github.com/vaidya21/House-Price-Prediction.git
-cd house-price-prediction
+cd House-Price-Prediction
 
 pip install -r requirements.txt
 ```
